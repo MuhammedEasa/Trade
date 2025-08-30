@@ -3,6 +3,16 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --cream-50: #fefdf8;
+  --cream-100: #fdf8f0;
+  --cream-200: #f9f0e6;
+  --cream-300: #f5e8d8;
+  --cream-400: #ead5c2;
+  --cream-500: #d4b896;
+  --cream-600: #b8956e;
+  --cream-700: #9c7a52;
+  --cream-800: #7d6144;
+  --cream-900: #654f38;
 }
 
 @theme inline {

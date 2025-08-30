@@ -1,0 +1,208 @@
+/* Removed :global(:root) since variables are now in globals.css */
+
+.formContainer {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 184, 150, 0.2);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.formGroup {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.formInput {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: var(--cream-50);
+  border: 2px solid var(--cream-200);
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--cream-900);
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: var(--cream-600);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(212, 184, 150, 0.1);
+  transform: translateY(-1px);
+}
+
+.formInput::placeholder {
+  color: var(--cream-500);
+  opacity: 1;
+}
+
+.formLabel {
+  position: absolute;
+  left: 1.25rem;
+  top: 1rem;
+  color: var(--cream-600);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  background: transparent;
+  z-index: 10;
+}
+
+.formInput:focus + .formLabel,
+.formInput:not(:placeholder-shown) + .formLabel {
+  transform: translateY(-2.5rem) scale(0.85);
+  color: var(--cream-700);
+  background: var(--cream-50);
+  padding: 0 0.5rem;
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submitBtn {
+  background: linear-gradient(135deg, var(--cream-600) 0%, var(--cream-700) 100%);
+  color: white;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 6px -1px rgba(156, 122, 82, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(156, 122, 82, 0.2);
+  background: linear-gradient(135deg, var(--cream-700) 0%, var(--cream-800) 100%);
+}
+
+.submitBtn:active {
+  transform: translateY(0);
+}
+
+.successContainer {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 1px solid #bbf7d0;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.iconCheck {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.fadeOut {
+  animation: fadeOut 0.4s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+}
+
+.gridResponsive {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .gridResponsive {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .formContainer {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .formInput {
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+  }
+
+  .formLabel {
+    left: 1rem;
+    top: 0.875rem;
+    font-size: 0.95rem;
+  }
+
+  .formInput:focus + .formLabel,
+  .formInput:not(:placeholder-shown) + .formLabel {
+    transform: translateY(-2.25rem) scale(0.85);
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.loadingSpinner {
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.errorMessage {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
